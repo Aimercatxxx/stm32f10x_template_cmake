@@ -74,6 +74,12 @@ file(GLOB_RECURSE USER_SRC
 file(GLOB_RECURSE BSP
     ${CMAKE_SOURCE_DIR}/BSP/*.c
 )
+file(GLOB_RECURSE FreeRTOS
+    ${CMAKE_SOURCE_DIR}/FreeRTOS/*.c
+	${CMAKE_SOURCE_DIR}/FreeRTOS/portable/GCC/ARM_CM3/*.c
+	${CMAKE_SOURCE_DIR}/FreeRTOS/portable/MemMang/*.c
+)
+
 
 # 添加 ELF 目标文件
 add_executable(${ELF_TARGET}
@@ -81,6 +87,8 @@ add_executable(${ELF_TARGET}
     ${STARTUP_SCRIPT}
     ${STDPERIPH_DRIVER}
     ${USER_SRC}
+	${BSP}
+	${FreeRTOS}
 )
 
 
@@ -91,6 +99,8 @@ target_include_directories(${ELF_TARGET} PRIVATE
     ${CMAKE_SOURCE_DIR}/Libraries/STM32F10x_StdPeriph_Driver/inc/
     ${CMAKE_SOURCE_DIR}/User/
     ${CMAKE_SOURCE_DIR}/BSP/
+	${CMAKE_SOURCE_DIR}/FreeRTOS/include/
+	${CMAKE_SOURCE_DIR}/FreeRTOS/portable/GCC/ARM_CM3/
 )
 
 
