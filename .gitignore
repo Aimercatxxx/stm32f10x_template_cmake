@@ -1,0 +1,16 @@
+# 忽略 build 目录
+build/
+
+# 忽略生成的二进制和反汇编文件
+*.elf
+*.hex
+*.bin
+*.asm
+*.map
+
+# 忽略 VSCode 配置
+.vscode/
+
+# 忽略临时文件
+*.log
+*.tmp
